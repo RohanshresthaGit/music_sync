@@ -1,0 +1,67 @@
+{
+  "@@locale": "mr",
+
+  "hello": "नमस्कार",
+  "thankYou": "धन्यवाद",
+  "yes": "होय",
+  "no": "नाही",
+  "please": "कृपया",
+  "sorry": "माफ करा",
+  "water": "पाणी",
+  "food": "अन्न",
+  "house": "घर",
+  "friend": "मित्र",
+  "book": "पुस्तक",
+  "school": "शाळा",
+
+  "welcome_back": "पुन्हा स्वागत आहे!",
+  "login_message": "वनरक्षक म्हणून तुमचा प्रवास पुढे सुरू ठेवा.",
+  "email_or_mobile": "ईमेल किंवा मोबाईल",
+  "password": "पासवर्ड",
+  "forgot_password": "पासवर्ड विसरलात?",
+  "sign_in": "साइन इन",
+  "or_continue_with": "किंवा पुढे सुरू ठेवा",
+  "new_to_vanashree": "वनाश्रीमध्ये नवीन आहात? ",
+  "sign_up_for_an_account": "खाते तयार करा",
+  "language": "भाषा",
+  "select_language": "भाषा निवडा",
+
+  "please_enter_your_email_or_mobile_number": "कृपया तुमचा ईमेल किंवा मोबाईल नंबर प्रविष्ट करा",
+  "please_enter_your_password": "कृपया तुमचा पासवर्ड प्रविष्ट करा",
+  "password_must_be_at_least_6_charecters_long": "पासवर्ड किमान 6 अक्षरांचा असावा",
+
+  "sign_up1_title": "तुमचा\nवनस्पती प्रवास सुरू करा.",
+  "sign_up1_description": "स्थानिक रोपे आणि संवर्धन उपक्रमांच्या आमच्या जिवंत संग्रहात सहभागी होण्यासाठी खाते तयार करा.",
+
+  "full_name": "पूर्ण नाव",
+  "email_address": "ईमेल पत्ता",
+  "mobile_number": "मोबाईल नंबर",
+
+  "security_and_trust": "सुरक्षा आणि विश्वास",
+  "security_and_trust_description": "आम्ही तुमच्या डेटाचे संरक्षण आमच्या जंगलांप्रमाणेच करतो.",
+
+  "next_step": "पुढील टप्पा",
+
+  "sign_up2_title": "तुम्ही कुठे\nवाढत आहात?",
+  "sign_up2_description": "तुमची स्थानिक परिसंस्था शेअर करून आम्हाला तुमचा पुनर्वनीकरण प्रवास अधिक चांगला बनविण्यात मदत करा.",
+
+  "country": "देश",
+  "state": "राज्य",
+  "city": "शहर",
+
+  "back": "मागे",
+
+  "sign_up3_title": "तुमची गोष्ट सांगा.",
+  "sign_up3_description": "स्थानिक वनस्पतींसोबतचा तुमचा प्रवास महत्त्वाचा आहे. तुमची दृष्टी शेअर करा आणि स्थानिक परिसंस्थांचे भविष्य घडविण्यात मदत करा.",
+
+  "your_bio": "तुमची माहिती",
+  "complete_onboarding": "ऑनबोर्डिंग पूर्ण करा",
+
+  "please_enter_your_name": "कृपया तुमचे नाव प्रविष्ट करा",
+  "please_enter_your_email": "कृपया तुमचा ईमेल प्रविष्ट करा",
+  "please_enter_your_mobile_number": "कृपया तुमचा मोबाईल नंबर प्रविष्ट करा",
+  "please_select_a_country": "कृपया एक देश निवडा",
+  "please_select_a_state": "कृपया एक राज्य निवडा",
+  "please_select_a_city": "कृपया एक शहर निवडा",
+  "please_enter_your_bio": "कृपया तुमची माहिती प्रविष्ट करा"
+}

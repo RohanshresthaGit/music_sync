@@ -1,0 +1,67 @@
+{
+  "@@locale": "hi",
+
+  "hello": "नमस्ते",
+  "thankYou": "धन्यवाद",
+  "yes": "हाँ",
+  "no": "नहीं",
+  "please": "कृपया",
+  "sorry": "माफ़ कीजिए",
+  "water": "पानी",
+  "food": "भोजन",
+  "house": "घर",
+  "friend": "मित्र",
+  "book": "किताब",
+  "school": "विद्यालय",
+
+  "welcome_back": "वापसी पर स्वागत है!",
+  "login_message": "वन के संरक्षक के रूप में अपनी यात्रा जारी रखें।",
+  "email_or_mobile": "ईमेल या मोबाइल",
+  "password": "पासवर्ड",
+  "forgot_password": "पासवर्ड भूल गए?",
+  "sign_in": "साइन इन करें",
+  "or_continue_with": "या जारी रखें",
+  "new_to_vanashree": "वनाश्री में नए हैं? ",
+  "sign_up_for_an_account": "खाता बनाएं",
+  "language": "भाषा",
+  "select_language": "भाषा चुनें",
+
+  "please_enter_your_email_or_mobile_number": "कृपया अपना ईमेल या मोबाइल नंबर दर्ज करें",
+  "please_enter_your_password": "कृपया अपना पासवर्ड दर्ज करें",
+  "password_must_be_at_least_6_charecters_long": "पासवर्ड कम से कम 6 अक्षरों का होना चाहिए",
+
+  "sign_up1_title": "अपनी\nवनस्पति यात्रा शुरू करें।",
+  "sign_up1_description": "देशी पौधों और संरक्षण प्रयासों के हमारे जीवंत संग्रह से जुड़ने के लिए खाता बनाएं।",
+
+  "full_name": "पूरा नाम",
+  "email_address": "ईमेल पता",
+  "mobile_number": "मोबाइल नंबर",
+
+  "security_and_trust": "सुरक्षा और विश्वास",
+  "security_and_trust_description": "हम आपके डेटा की रक्षा वैसे ही करते हैं जैसे अपने जंगलों की करते हैं।",
+
+  "next_step": "अगला चरण",
+
+  "sign_up2_title": "आप कहाँ\nउग रहे हैं?",
+  "sign_up2_description": "अपना स्थानीय पारिस्थितिकी तंत्र साझा करके हमें आपकी पुनर्वनीकरण यात्रा को बेहतर बनाने में मदद करें।",
+
+  "country": "देश",
+  "state": "राज्य",
+  "city": "शहर",
+
+  "back": "वापस",
+
+  "sign_up3_title": "अपनी कहानी बताएं।",
+  "sign_up3_description": "देशी वनस्पतियों के साथ आपकी यात्रा महत्वपूर्ण है। अपना दृष्टिकोण साझा करें और स्थानीय पारिस्थितिक तंत्र के भविष्य को आकार देने में मदद करें।",
+
+  "your_bio": "आपका परिचय",
+  "complete_onboarding": "ऑनबोर्डिंग पूरा करें",
+
+  "please_enter_your_name": "कृपया अपना नाम दर्ज करें",
+  "please_enter_your_email": "कृपया अपना ईमेल दर्ज करें",
+  "please_enter_your_mobile_number": "कृपया अपना मोबाइल नंबर दर्ज करें",
+  "please_select_a_country": "कृपया एक देश चुनें",
+  "please_select_a_state": "कृपया एक राज्य चुनें",
+  "please_select_a_city": "कृपया एक शहर चुनें",
+  "please_enter_your_bio": "कृपया अपना परिचय दर्ज करें"
+}
