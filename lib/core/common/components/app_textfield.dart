@@ -10,6 +10,7 @@ class AppTextField extends StatelessWidget {
     this.prefixIcon,
     this.validator,
     this.maxLines,
+    this.keyboardType,
     required this.controller,
   });
   final int? maxLines;
@@ -19,6 +20,7 @@ class AppTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final FormFieldValidator<String>? validator;
   final TextEditingController controller;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class AppTextField extends StatelessWidget {
       validator: validator,
       readOnly: isReadOnly,
       obscureText: isObsecure,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
         prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,

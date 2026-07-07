@@ -6,8 +6,11 @@ import 'package:music_sync/core/common/components/app_textfield.dart';
 import 'package:music_sync/core/common/components/primary_button.dart';
 import 'package:music_sync/core/common/constants/sizedbox_constants.dart';
 import 'package:music_sync/core/extensions/build_context_extensions.dart';
+import 'package:music_sync/core/utils/validators/validators.dart';
 import 'package:music_sync/features/auth/di/auth_di.dart';
-import 'package:music_sync/features/auth/model/login_request_model.dart';
+import 'package:music_sync/features/auth/model/otp_arguments.dart';
+import 'package:music_sync/features/auth/model/register_request_model.dart';
+import 'package:music_sync/features/auth/repository/otp_verification.dart';
 import 'package:music_sync/features/auth/view_model/auth_state.dart';
 
 class RegisterView extends ConsumerStatefulWidget {
@@ -21,6 +24,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
   late final TextEditingController _emailController;
   late final TextEditingController _usernameController;
   late final TextEditingController _passwordController;
+  late final TextEditingController _confirmpasswordController;
   late final GlobalKey<FormState> _formKey;
   late final ProviderSubscription _authListener;
 
@@ -30,14 +34,27 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
     _emailController = TextEditingController();
     _usernameController = TextEditingController();
     _passwordController = TextEditingController();
+    _confirmpasswordController = TextEditingController();
     _formKey = GlobalKey<FormState>();
 
     _authListener = ref.listenManual(authViewModelProvider, (previous, next) {
-      if (previous is! AuthSuccess && next is AuthSuccess) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (!mounted) return;
-          context.go(RouteNames.auth.verifyEmail);
-        });
+      switch (next) {
+        case RegisterSuccess(data: final data):
+          context.go(
+            RouteNames.auth.verifyOtp,
+            extra: OtpArguments(
+              email: data.email,
+              verification: RegisterOtpVerification(
+                email: data.email,
+                vm: ref.read(authViewModelProvider.notifier),
+              ),
+            ),
+          );
+          break;
+
+        case AuthFailure(message: final message):
+          context.showErrorSnackBar(message);
+          break;
       }
     });
   }
@@ -47,6 +64,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
     _emailController.dispose();
     _usernameController.dispose();
     _passwordController.dispose();
+    _confirmpasswordController.dispose();
     _authListener.close();
     super.dispose();
   }
@@ -79,25 +97,48 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                 controller: _emailController,
                 hintText: "example@gmail.com",
                 prefixIcon: Icons.email,
+                validator: Validators.combine([
+                  Validators.required('Email'),
+                  Validators.email(),
+                ]),
               ),
               Spacing.vertical(16),
               AppTextField(
                 controller: _usernameController,
                 hintText: "Enter your username",
                 prefixIcon: Icons.person,
+                validator: Validators.combine([
+                  Validators.required('Username'),
+                  Validators.minLength(3),
+                  Validators.maxLength(30),
+                ]),
               ),
               Spacing.vertical(16),
               AppTextField(
                 controller: _passwordController,
                 hintText: "Enter your password",
                 prefixIcon: Icons.lock,
+                validator: Validators.combine([
+                  Validators.required('Password'),
+                  Validators.minLength(8),
+                  Validators.strongPassword(),
+                ]),
+              ),
+              Spacing.vertical(16),
+              AppTextField(
+                controller: _confirmpasswordController,
+                hintText: "Confirm your password",
+                prefixIcon: Icons.lock,
+                validator: Validators.combine([
+                  Validators.match(() => _passwordController.text.trim()),
+                ]),
               ),
               Spacing.vertical(32),
               PrimaryButton(
                 isLoading: authState is AuthLoading,
                 onPressed: () {
                   if (!_formKey.currentState!.validate()) return;
-                  final loginPayload = LoginRequestModel(
+                  final loginPayload = RegiterRequestModel(
                     email: _emailController.text.trim(),
                     username: _usernameController.text.trim(),
                     password: _passwordController.text.trim(),
@@ -108,6 +149,28 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                 title: "Sign Up",
                 backgroundColor: Theme.of(context).primaryColor,
                 textColor: Colors.white,
+              ),
+              Spacing.vertical(24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already have an account?',
+                    style: context.textTheme.bodyMedium?.copyWith(
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => context.go(RouteNames.auth.login),
+                    child: Text(
+                      'Log In',
+                      style: context.textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

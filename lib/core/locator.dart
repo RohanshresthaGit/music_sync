@@ -8,11 +8,15 @@ import 'utils/logger/logger.dart';
 final GetIt getIt = GetIt.instance;
 
 void setupLocator() {
+  if (getIt.isRegistered<AppLogger>()) {
+    return;
+  }
+
   getIt
     ..registerSingleton<AppLogger>(AppLogger())
     ..registerSingleton<ISecureStorageService>(SecureStorageService())
     ..registerSingleton<DioService>(DioService());
-    // ..registerLazySingleton<Dio>(() => getIt<DioService>().dio);
+  // ..registerLazySingleton<Dio>(() => getIt<DioService>().dio);
   // getIt.registerSingleton<NetworkConnectivity>(NetworkConnectivity());
 }
 

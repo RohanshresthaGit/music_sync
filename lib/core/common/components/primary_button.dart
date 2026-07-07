@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../extensions/build_context_extensions.dart';
 
 class PrimaryButton extends StatelessWidget {
-  final Color backgroundColor, textColor;
+  final Color? backgroundColor, textColor;
   final String title;
   final IconData? suffixIcon, prefixIcon;
   final VoidCallback? onPressed;
@@ -15,8 +15,8 @@ class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     this.borderRadius,
     super.key,
-    required this.backgroundColor,
-    required this.textColor,
+    this.backgroundColor,
+    this.textColor,
     required this.title,
     this.onPressed,
     this.shouldElevate = true,
@@ -39,7 +39,7 @@ class PrimaryButton extends StatelessWidget {
               padding ??
               const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
           decoration: BoxDecoration(
-            color: backgroundColor,
+            color: backgroundColor ?? context.theme.primaryColor,
             borderRadius: BorderRadius.circular(borderRadius ?? 8),
             boxShadow: shouldElevate
                 ? [
@@ -67,7 +67,11 @@ class PrimaryButton extends StatelessWidget {
                     children: [
                       if (prefixIcon != null) ...[
                         WidgetSpan(
-                          child: Icon(prefixIcon, size: 16, color: textColor),
+                          child: Icon(
+                            prefixIcon,
+                            size: 16,
+                            color: textColor ?? context.colorScheme.onPrimary,
+                          ),
                         ),
                         const WidgetSpan(child: SizedBox(width: 8)),
                       ],
@@ -75,7 +79,7 @@ class PrimaryButton extends StatelessWidget {
                         text: title,
                         style: context.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.w700,
-                          color: textColor,
+                          color: textColor ?? Colors.white,
                         ),
                       ),
                       if (suffixIcon != null) ...[

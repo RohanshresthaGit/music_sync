@@ -1,5 +1,5 @@
 class ApiEndpoints {
-  static const String baseUrl = 'http://192.168.254.33:8080/api/v1/';
+  static const String baseUrl = 'http://192.168.254.33:8080/api/v1';
 
   static const String auth = '$baseUrl/auth';
   static const String login = '$auth/login';
@@ -11,5 +11,4 @@ class ApiEndpoints {
   static const String changePassword = '$auth/change-password';
   static const String resetPassword = '$auth/reset-password';
   static const String refreshToken = '$auth/refresh-token';
-  
 }

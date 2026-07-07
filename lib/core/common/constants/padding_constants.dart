@@ -18,6 +18,12 @@ class Paddings {
   static const EdgeInsetsGeometry kVerticalPadding24 = EdgeInsets.symmetric(
     vertical: 24,
   );
+  static const EdgeInsetsGeometry kHorizontalPadding16 = EdgeInsets.symmetric(
+    horizontal: 16,
+  );
+  static const EdgeInsetsGeometry kHorizontalPadding24 = EdgeInsets.symmetric(
+    horizontal: 24,
+  );
   static const EdgeInsetsGeometry kHorizontalPadding5 = EdgeInsets.symmetric(
     horizontal: 5,
   );

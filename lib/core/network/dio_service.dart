@@ -1,35 +1,34 @@
-import 'package:dio/dio.dart';
 import 'package:chucker_flutter/chucker_flutter.dart';
+import 'package:dio/dio.dart';
+import 'package:music_sync/core/common/constants/api_endpoints.dart';
 import 'package:music_sync/core/network/interceptors/auth_interceptor.dart';
 import 'package:music_sync/core/network/interceptors/logger_interceptor.dart';
 
 class DioService {
   DioService._({
-    String baseUrl = '',
+    String baseUrl = ApiEndpoints.baseUrl,
     Duration connectTimeout = const Duration(seconds: 10),
     Duration receiveTimeout = const Duration(seconds: 10),
     Duration sendTimeout = const Duration(seconds: 10),
     Map<String, dynamic>? defaultHeaders,
     List<Interceptor>? customInterceptors,
   }) : dio = Dio(
-          BaseOptions(
-            baseUrl: baseUrl,
-            connectTimeout: connectTimeout,
-            receiveTimeout: receiveTimeout,
-            sendTimeout: sendTimeout,
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              ...?defaultHeaders,
-            },
-          ),
-        ) {
+         BaseOptions(
+           baseUrl: baseUrl,
+           connectTimeout: connectTimeout,
+           receiveTimeout: receiveTimeout,
+           sendTimeout: sendTimeout,
+           validateStatus: (_) => true,
+           headers: {
+             'Content-Type': 'application/json',
+             'Accept': 'application/json',
+             ...?defaultHeaders,
+           },
+         ),
+       ) {
     dio.interceptors.addAll(
-      customInterceptors ?? [
-        AuthInterceptor(),
-        LoggerInterceptor(),
-        ChuckerDioInterceptor(),
-      ],
+      customInterceptors ??
+          [AuthInterceptor(), LoggerInterceptor(), ChuckerDioInterceptor()],
     );
   }
 

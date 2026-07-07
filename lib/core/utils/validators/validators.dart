@@ -26,9 +26,9 @@ class Validators {
   static Validator minLength(int length) {
     return (value) {
       if ((value ?? '').length < length) {
-        return 'Minimum $length charecters required';
+        return 'Minimum $length characters required';
       }
-      return value;
+      return null;
     };
   }
 
@@ -75,9 +75,9 @@ class Validators {
     };
   }
 
-  static Validator match(String compareValue) {
+  static Validator match(String Function() getCompareValu) {
     return (value) {
-      if (value != compareValue) {
+      if (value != getCompareValu().trim()) {
         return "Values doesnot match";
       }
       return null;
